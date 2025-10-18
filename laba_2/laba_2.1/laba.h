@@ -6,5 +6,4 @@ void check_fractions(int base, int count, ...);
 
 enum errors {
     OUT_OF_RANGE,
-
 };

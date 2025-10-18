@@ -1,5 +1,4 @@
-#ifndef STRING_UTILS_H
-#define STRING_UTILS_H
+#pragma once
 
 #include <stddef.h>
 
@@ -17,5 +16,3 @@ char *strpbrk(const char *str1, const char *str2);
 char *strrchr(const char *str, int c);
 char *strstr(const char *haystack, const char *needle);
 char *strtok(char *str, const char *delim);
-
-#endif // STRING_UTILS_H

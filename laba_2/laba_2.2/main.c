@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stddef.h>
 #include <stdio.h>
 #include <errno.h>
 #include "header.hpp"
@@ -300,25 +299,20 @@ void* memset(void* str, int c, size_t n) {
 }
 // e
 char *strncat(char *dest, const char *src, size_t n) {
-    char *og_dest = dest;
-    
-    // Находим конец строки dest
-    while (*dest != '\0') {
-        dest++;
+    char *dest_end = dest;
+    while (*dest_end != '\0') {
+        dest_end++;
     }
-    
-    // Копируем до n символов из src
-    while (n > 0 && *src != '\0') {
-        *dest = *src;
-        dest++;
-        src++;
-        n--;
+
+    size_t i = 0;
+    while (i < n && src[i] != '\0') {
+        dest_end[i] = src[i];
+        i++;
     }
-    
-    // Добавляем завершающий нулевой символ
-    *dest = '\0';
-    
-    return og_dest;
+
+    dest_end[i] = '\0';
+
+    return dest;
 }
 // f
 char *strchr(const char *str, int c) {
@@ -441,12 +435,10 @@ char *strstr(const char *haystack, const char *needle) {
 char *strtok(char *str, const char *delim) {
     static char *next_token = NULL;
 
-    // Если передана новая строка — начинаем с неё
     if (str != NULL) {
         next_token = str;
     }
 
-    // Если нет строки и нет сохранённой позиции — завершаем
     if (next_token == NULL || *next_token == '\0') {
         return NULL;
     }
