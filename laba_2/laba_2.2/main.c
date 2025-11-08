@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
-#include "header.hpp"
+#include "header.h"
 
 #ifdef __APPLE__
     #include <sys/errno.h>

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include "header.hpp"
+#include "header.h"
 #include "main.c"
 
 // Макрос для проверки утверждений с выводом ошибки и завершением программы
